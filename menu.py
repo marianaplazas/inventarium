@@ -19,11 +19,11 @@ materiales = {}
 #def opcion_3():
    # return 'Seleccionó la opción 2.2'
 
-#def opcion_salida():
-    #return 'Seleccionó salir\n¿Está seguro que desea salir? Y/N'
+def opcion_salida():
+    return 'Seleccionó salir\n¿Está seguro que desea salir? Y/N'
 
-#def opcion_error():
-    #print ('Seleccionó una opción no válida')
+def opcion_error():
+    print ('Seleccionó una opción no válida')
 
 def borrarPantalla(): #Definimos la función estableciendo el nombre que queramos
     if os.name == "posix":

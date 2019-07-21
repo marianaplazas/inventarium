@@ -1,16 +1,35 @@
 #!/usr/bin/python3
 import os
 
+
 tornillos = {}
 herramientas = {}
 materiales = {}
+categorias = ['T', 'H', 'M']
 
 #def agregar():
     #return 'Seleccionó la opción 1.1'
 
-#def retirar(self, args):
+def retirar(args):
+    list_arg = args.split
+    if len(list_arg) < 0: 
+        print("Falta el nombre del producto")
+    elif len(list_arg) == 1:
+            print("Falta el numero de productos")
+    else:
+        a = list_arg[0]
+        dic_arg = {list_arg[0]: '{}'.format(list_arg[1])}
+        if a[0] is not categorias:
+            print("el producto no esta dentro de las categorias")
+        else:
+            if a[0] == "T":
+                return (tornillos.update(dic_arg))
+            elif a[0] == 'M':
+                return (materiales.update(dic_arg))
+            else:
+                return (herramientas.update(dic_arg))
+                
         
-
     #return 'Seleccionó la opción 1.2'
 
 #def opcion_2():
@@ -41,8 +60,7 @@ while(True):
     borrarPantalla()
     if opc == '1':
         print("para agregar la compra escriba agregar") 
-        # aquí va el codigo para reportar la compra
-        # ejecutar la función agregar compra
+
         opc1 = input()
 #        if opc1 == 'a':
  #           print(opcion1_1())
@@ -55,6 +73,7 @@ while(True):
     elif opc == '2':
         print("Escriba vendido")
         opc2 = input()
+        retirar(opc2)
      #else:
             #mensaje de error
       #      print(opcion_error())

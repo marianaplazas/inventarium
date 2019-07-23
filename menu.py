@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import os
 
-
 tornillos = {}
 herramientas = {}
 materiales = {}
@@ -10,30 +9,38 @@ categorias = ['T', 'H', 'M']
 #def agregar():
     #return 'Seleccionó la opción 1.1'
 
-def retirar(args):
-    list_arg = args.split
-    if len(list_arg) < 0: 
-        print("Falta el nombre del producto")
-    elif len(list_arg) == 1:
-            print("Falta el numero de productos")
-    else:
-        a = list_arg[0]
-        dic_arg = {list_arg[0]: '{}'.format(list_arg[1])}
-        if a[0] is not categorias:
-            print("el producto no esta dentro de las categorias")
+def retirar(text=""):
+    with open('test.txt', mode='r', encoding='utf-8') as f:
+        save = f.read()
+        save = save.split('\n')
+        save2 = []
+        nombres = []
+        nmros = []
+        for i in save:
+            todo = i.split(' ')
+            save2.append(todo)
+            nombres.append(todo[0])
+        text2 = text.split(' ')
+        if text2[0] in nombres:
+            for i in save2:
+                if text2[0] in i:
+                    save3 = []
+                    i[1] = int(i[1]) - int(text2[1])
+                    i[1] = str(i[1])
+                    for j in save2:
+                        save3.append(' '.join(j))
+                    save3 = '\n'.join(save3) 
+                    with open('test.txt', mode='w', encoding='utf-8') as fff:
+                        print(save3)
+                        fff.write(save3)
         else:
-            if a[0] == "T":
-                return (tornillos.update(dic_arg))
-            elif a[0] == 'M':
-                return (materiales.update(dic_arg))
-            else:
-                return (herramientas.update(dic_arg))
-                
-        
+            with open('test.txt', mode='a', encoding='utf-8') as ff:
+                ff.write(text)
     #return 'Seleccionó la opción 1.2'
 
 #def opcion_2():
    # return 'Seleccionó la opción 2.1'
+
 
 #def opcion_3():
    # return 'Seleccionó la opción 2.2'

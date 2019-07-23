@@ -1,0 +1,8 @@
+A6mm 15
+HMart 20
+Hdest 6
+MHier 52
+TP10mm 456
+HSeg18 78
+MAlum 982
+HTal 3
